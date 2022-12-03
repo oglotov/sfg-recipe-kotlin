@@ -2,12 +2,13 @@ package ua.wwind.glotov.recipe.domain
 
 import jakarta.persistence.*
 
+@Suppress("unused")
 @Entity
-open class UnitOfMeasure(
+class UnitOfMeasure(
     var uom: String
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    open var id: Long? = null
+    var id: Long? = null
 }

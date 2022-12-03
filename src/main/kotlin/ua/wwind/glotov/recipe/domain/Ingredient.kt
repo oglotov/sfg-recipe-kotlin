@@ -3,8 +3,9 @@ package ua.wwind.glotov.recipe.domain
 import jakarta.persistence.*
 import java.math.BigDecimal
 
+@Suppress("unused")
 @Entity
-open class Ingredient(
+class Ingredient(
     var description: String,
     var amount: BigDecimal,
     @ManyToOne
@@ -15,5 +16,5 @@ open class Ingredient(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    open var id: Long? = null
+    var id: Long? = null
 }
