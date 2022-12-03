@@ -10,11 +10,11 @@ class Ingredient(
     var amount: BigDecimal,
     @ManyToOne(fetch = FetchType.EAGER)
     var unitOfMeasure: UnitOfMeasure,
-    @ManyToOne
-    val recipe: Recipe,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     var id: Long? = null
+    @ManyToOne
+    var recipe: Recipe? = null
 }

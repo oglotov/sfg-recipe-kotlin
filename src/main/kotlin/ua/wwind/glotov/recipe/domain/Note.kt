@@ -5,9 +5,6 @@ import jakarta.persistence.*
 @Suppress("unused")
 @Entity
 class Note(
-    @OneToOne
-    val recipe: Recipe,
-
     @Lob
     var recipeNotes: String
 ) {
@@ -15,4 +12,6 @@ class Note(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     var id: Long? = null
+    @OneToOne
+    var recipe: Recipe? = null
 }

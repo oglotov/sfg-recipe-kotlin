@@ -73,7 +73,6 @@ class RecipeBootstrap @Autowired constructor(
                             "\n" +
                             "\n" + "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvpiV9Sd"
                 note = Note(
-                    this,
                     "For a very quick guacamole just take a 1/4 cup of salsa and mix it in with your mashed avocados.\n" +
                             "Feel free to experiment! One classic Mexican guacamole has pomegranate seeds and chunks of peaches in it (a Diana Kennedy favorite). Try guacamole with added pineapple, mango, or strawberries.\n" +
                             "The simplest version of guacamole is just mashed avocados with salt. Don't let the lack of availability of other ingredients stop you from making guacamole.\n" +
@@ -82,40 +81,36 @@ class RecipeBootstrap @Autowired constructor(
                             "\n" +
                             "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws"
                 )
-                ingredients.add(Ingredient("ripe avocados", BigDecimal(2), eachUom, this))
-                ingredients.add(Ingredient("Kosher salt", BigDecimal(".5"), teaSpoonUom, this))
-                ingredients.add(
+                addIngredient(Ingredient("ripe avocados", BigDecimal(2), eachUom))
+                addIngredient(Ingredient("Kosher salt", BigDecimal(".5"), teaSpoonUom))
+                addIngredient(
                     Ingredient(
                         "fresh lime juice or lemon juice",
                         BigDecimal(2),
-                        tableSpoonUom,
-                        this
+                        tableSpoonUom
                     )
                 )
-                ingredients.add(
+                addIngredient(
                     Ingredient(
                         "minced red onion or thinly sliced green onion",
                         BigDecimal(2),
-                        tableSpoonUom,
-                        this
+                        tableSpoonUom
                     )
                 )
-                ingredients.add(
+                addIngredient(
                     Ingredient(
                         "serrano chiles, stems and seeds removed, minced",
                         BigDecimal(2),
-                        eachUom,
-                        this
+                        eachUom
                     )
                 )
-                ingredients.add(Ingredient("Cilantro", BigDecimal(2), tableSpoonUom, this))
-                ingredients.add(Ingredient("freshly grated black pepper", BigDecimal(2), dashUom, this))
-                ingredients.add(
+                addIngredient(Ingredient("Cilantro", BigDecimal(2), tableSpoonUom))
+                addIngredient(Ingredient("freshly grated black pepper", BigDecimal(2), dashUom))
+                addIngredient(
                     Ingredient(
                         "ripe tomato, seeds and pulp removed, chopped",
                         BigDecimal(".5"),
-                        eachUom,
-                        this
+                        eachUom
                     )
                 )
 
@@ -146,7 +141,6 @@ class RecipeBootstrap @Autowired constructor(
                         "Read more: http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvtrAnNm")
 
                 note = Note(
-                    this,
                     "We have a family motto and it is this: Everything goes better in a tortilla.\n" +
                             "Any and every kind of leftover can go inside a warm tortilla, usually with a healthy dose of pickled jalapenos. I can always sniff out a late-night snacker when the aroma of tortillas heating in a hot pan on the stove comes wafting through the house.\n" +
                             "Today’s tacos are more purposeful – a deliberate meal instead of a secretive midnight snack!\n" +
@@ -156,39 +150,37 @@ class RecipeBootstrap @Autowired constructor(
                             "\n" +
                             "Read more: http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvu7Q0MJ"
                 )
-                ingredients.add(Ingredient("Ancho Chili Powder", BigDecimal(2), tableSpoonUom, this))
-                ingredients.add(Ingredient("Dried Oregano", BigDecimal(1), teaSpoonUom, this))
-                ingredients.add(Ingredient("Dried Cumin", BigDecimal(1), teaSpoonUom, this))
-                ingredients.add(Ingredient("Sugar", BigDecimal(1), teaSpoonUom, this))
-                ingredients.add(Ingredient("Salt", BigDecimal(".5"), teaSpoonUom, this))
-                ingredients.add(Ingredient("Clove of Garlic, Choppedr", BigDecimal(1), eachUom, this))
-                ingredients.add(Ingredient("finely grated orange zestr", BigDecimal(1), tableSpoonUom, this))
-                ingredients.add(
+                addIngredient(Ingredient("Ancho Chili Powder", BigDecimal(2), tableSpoonUom))
+                addIngredient(Ingredient("Dried Oregano", BigDecimal(1), teaSpoonUom))
+                addIngredient(Ingredient("Dried Cumin", BigDecimal(1), teaSpoonUom))
+                addIngredient(Ingredient("Sugar", BigDecimal(1), teaSpoonUom))
+                addIngredient(Ingredient("Salt", BigDecimal(".5"), teaSpoonUom))
+                addIngredient(Ingredient("Clove of Garlic, Choppedr", BigDecimal(1), eachUom))
+                addIngredient(Ingredient("finely grated orange zestr", BigDecimal(1), tableSpoonUom))
+                addIngredient(
                     Ingredient(
                         "fresh-squeezed orange juice",
                         BigDecimal(3),
-                        tableSpoonUom,
-                        this
+                        tableSpoonUom
                     )
                 )
-                ingredients.add(Ingredient("Olive Oil", BigDecimal(2), tableSpoonUom, this))
-                ingredients.add(Ingredient("boneless chicken thighs", BigDecimal(4), tableSpoonUom, this))
-                ingredients.add(Ingredient("small corn tortillasr", BigDecimal(8), eachUom, this))
-                ingredients.add(Ingredient("packed baby arugula", BigDecimal(3), cupsUom, this))
-                ingredients.add(Ingredient("medium ripe avocados, slic", BigDecimal(2), eachUom, this))
-                ingredients.add(Ingredient("radishes, thinly sliced", BigDecimal(4), eachUom, this))
-                ingredients.add(Ingredient("cherry tomatoes, halved", BigDecimal(".5"), pintUom, this))
-                ingredients.add(Ingredient("red onion, thinly sliced", BigDecimal(".25"), eachUom, this))
-                ingredients.add(Ingredient("Roughly chopped cilantro", BigDecimal(4), eachUom, this))
-                ingredients.add(
+                addIngredient(Ingredient("Olive Oil", BigDecimal(2), tableSpoonUom))
+                addIngredient(Ingredient("boneless chicken thighs", BigDecimal(4), tableSpoonUom))
+                addIngredient(Ingredient("small corn tortillasr", BigDecimal(8), eachUom))
+                addIngredient(Ingredient("packed baby arugula", BigDecimal(3), cupsUom))
+                addIngredient(Ingredient("medium ripe avocados, slic", BigDecimal(2), eachUom))
+                addIngredient(Ingredient("radishes, thinly sliced", BigDecimal(4), eachUom))
+                addIngredient(Ingredient("cherry tomatoes, halved", BigDecimal(".5"), pintUom))
+                addIngredient(Ingredient("red onion, thinly sliced", BigDecimal(".25"), eachUom))
+                addIngredient(Ingredient("Roughly chopped cilantro", BigDecimal(4), eachUom))
+                addIngredient(
                     Ingredient(
                         "cup sour cream thinned with 1/4 cup milk",
                         BigDecimal(4),
-                        cupsUom,
-                        this
+                        cupsUom
                     )
                 )
-                ingredients.add(Ingredient("lime, cut into wedges", BigDecimal(4), eachUom, this))
+                addIngredient(Ingredient("lime, cut into wedges", BigDecimal(4), eachUom))
 
                 categories.add(americanCategory)
                 categories.add(mexicanCategory)

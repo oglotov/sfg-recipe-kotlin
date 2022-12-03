@@ -34,8 +34,18 @@ class Recipe(
 
     @OneToOne(cascade = [CascadeType.ALL])
     var note: Note? = null
+        set(value) {
+            if (value != null) value.recipe = this
+            field = value
+        }
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "recipe")
     val ingredients: MutableSet<Ingredient> = mutableSetOf()
+
+    fun addIngredient(ingredient: Ingredient): Recipe {
+        ingredient.recipe = this
+        ingredients.add(ingredient)
+        return this
+    }
 
 }
