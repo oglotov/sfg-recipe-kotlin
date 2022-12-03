@@ -20,6 +20,9 @@ open class Recipe(
     @Lob
     var image: ByteArray? = null
 
+    @Enumerated(value = EnumType.STRING)
+    var difficulty: Difficulty? = null
+
     @OneToOne(cascade = [CascadeType.ALL])
     var note: Note? = null
 
