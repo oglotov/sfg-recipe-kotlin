@@ -8,10 +8,10 @@ import java.math.BigDecimal
 class Ingredient(
     var description: String,
     var amount: BigDecimal,
+    @ManyToOne(fetch = FetchType.EAGER)
+    var unitOfMeasure: UnitOfMeasure,
     @ManyToOne
     val recipe: Recipe,
-    @ManyToOne(fetch = FetchType.EAGER)
-    var unitOfMeasure: UnitOfMeasure
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

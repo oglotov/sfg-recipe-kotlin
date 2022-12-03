@@ -5,7 +5,7 @@ import jakarta.persistence.*
 @Suppress("unused")
 @Entity
 class UnitOfMeasure(
-    var uom: String
+    var name: String
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
