@@ -32,9 +32,20 @@ configurations["intTestImplementation"].extendsFrom(configurations.testImplement
 configurations["intTestRuntimeOnly"].extendsFrom(configurations.runtimeOnly.get())
 
 dependencies {
+
+    //
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    // Web
     implementation("org.springframework.boot:spring-boot-starter-web")
+
+    // WebJars
+    compileOnly("org.webjars.npm:bootstrap:5.2.3")
+    compileOnly("org.webjars.npm:jquery:3.6.1")
+    
+    // Thymeleaf
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
