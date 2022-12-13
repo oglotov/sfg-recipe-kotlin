@@ -7,9 +7,9 @@ import java.math.BigDecimal
 @Entity
 class Ingredient(
     var description: String,
-    var amount: BigDecimal,
+    var amount: BigDecimal?,
     @ManyToOne(fetch = FetchType.EAGER)
-    var unitOfMeasure: UnitOfMeasure,
+    var unitOfMeasure: UnitOfMeasure?,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
