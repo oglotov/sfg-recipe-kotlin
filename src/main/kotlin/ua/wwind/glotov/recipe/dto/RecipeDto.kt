@@ -7,16 +7,16 @@ import java.io.Serializable
  * A DTO for the {@link ua.wwind.glotov.recipe.domain.Recipe} entity
  */
 data class RecipeDto(
-    val description: String,
-    val id: Long? = null,
-    val prepTime: Int? = null,
-    val cookTime: Int? = null,
-    val servings: Int? = null,
-    val source: String? = null,
-    val url: String? = null,
-    val directions: String? = null,
-    val categories: MutableSet<CategoryDto> = mutableSetOf(),
-    val difficulty: Difficulty? = null,
-    val note: NoteDto? = null,
-    val ingredients: MutableSet<IngredientDto> = mutableSetOf()
+    var description: String? = null,
+    var id: Long? = null,
+    var prepTime: Int? = null,
+    var cookTime: Int? = null,
+    var servings: Int? = null,
+    var source: String? = null,
+    var url: String? = null,
+    var directions: String? = null,
+    var categories: MutableSet<CategoryDto> = mutableSetOf(),
+    var difficulty: Difficulty? = null,
+    var note: NoteDto? = null,
+    var ingredients: MutableSet<IngredientDto> = mutableSetOf()
 ) : Serializable

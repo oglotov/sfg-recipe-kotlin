@@ -8,6 +8,6 @@ import ua.wwind.glotov.recipe.dto.NoteDto
 @Component
 class NoteDtoToNote : Converter<NoteDto, Note> {
     override fun convert(source: NoteDto): Note? {
-        return Note(source.recipeNotes).apply { id = source.id }
+        return Note(source.recipeNotes ?: "").apply { id = source.id }
     }
 }

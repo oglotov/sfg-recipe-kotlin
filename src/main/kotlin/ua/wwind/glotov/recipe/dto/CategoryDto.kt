@@ -5,4 +5,4 @@ import java.io.Serializable
 /**
  * A DTO for the {@link ua.wwind.glotov.recipe.domain.Category} entity
  */
-data class CategoryDto(val name: String, val id: Long? = null) : Serializable
+data class CategoryDto(var name: String? = null, var id: Long? = null) : Serializable

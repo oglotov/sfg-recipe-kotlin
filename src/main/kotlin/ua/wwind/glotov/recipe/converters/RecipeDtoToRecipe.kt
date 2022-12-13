@@ -12,7 +12,7 @@ class RecipeDtoToRecipe(
     private val ingredientDtoToIngredient: IngredientDtoToIngredient
 ) : Converter<RecipeDto, Recipe> {
     override fun convert(dto: RecipeDto): Recipe? {
-        return Recipe(description = dto.description)
+        return Recipe(description = dto.description ?: "")
             .apply {
                 id = dto.id
                 prepTime = dto.prepTime

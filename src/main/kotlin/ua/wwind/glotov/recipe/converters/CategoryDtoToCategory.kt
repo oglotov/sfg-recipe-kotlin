@@ -8,6 +8,6 @@ import ua.wwind.glotov.recipe.dto.CategoryDto
 @Component
 class CategoryDtoToCategory : Converter<CategoryDto, Category> {
     override fun convert(source: CategoryDto): Category? {
-        return Category(source.name).apply { id = source.id }
+        return Category(source.name ?: "").apply { id = source.id }
     }
 }

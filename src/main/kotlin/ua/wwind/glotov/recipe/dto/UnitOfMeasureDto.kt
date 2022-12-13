@@ -5,4 +5,4 @@ import java.io.Serializable
 /**
  * A DTO for the {@link ua.wwind.glotov.recipe.domain.UnitOfMeasure} entity
  */
-data class UnitOfMeasureDto(val name: String? = null, val id: Long? = null) : Serializable
+data class UnitOfMeasureDto(var name: String? = null, var id: Long? = null) : Serializable
