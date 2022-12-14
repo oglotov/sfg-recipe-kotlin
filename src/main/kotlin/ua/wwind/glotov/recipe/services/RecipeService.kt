@@ -8,4 +8,5 @@ interface RecipeService {
     fun findById(id: Long): Recipe?
     fun saveRecipeDto(recipeDto: RecipeDto): RecipeDto
     fun findDtoById(id: Long): RecipeDto?
+    fun deleteById(id: Long)
 }

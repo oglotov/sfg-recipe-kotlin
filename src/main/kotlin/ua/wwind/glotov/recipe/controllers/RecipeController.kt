@@ -14,6 +14,11 @@ class RecipeController @Autowired constructor(private val recipeService: RecipeS
         model.addAttribute("recipe", recipeService.findById(recipeId.toLong())!!)
         return "recipe/show"
     }
+    @GetMapping("/recipe/{recipe_id}/delete")
+    fun deleteRecipe(@PathVariable("recipe_id") recipeId: String, model: Model): String {
+        recipeService.deleteById(recipeId.toLong())
+        return "redirect:/"
+    }
 
     @RequestMapping("/recipe/new")
     fun newRecipe(model: Model): String {

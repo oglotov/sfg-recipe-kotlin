@@ -29,4 +29,8 @@ class RecipeServiceImpl @Autowired constructor(
         val recipe = recipeRepository.findById(id).getOrNull() ?: return null
         return recipeToRecipeDto.convert(recipe)
     }
+
+    override fun deleteById(id: Long) {
+        recipeRepository.deleteById(id)
+    }
 }
