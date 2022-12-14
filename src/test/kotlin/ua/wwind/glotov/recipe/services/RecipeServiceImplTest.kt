@@ -1,26 +1,43 @@
 package ua.wwind.glotov.recipe.services
 
+import io.mockk.every
+import io.mockk.impl.annotations.InjectMockKs
+import io.mockk.impl.annotations.MockK
+import io.mockk.impl.annotations.RelaxedMockK
+import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.Mock
+import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.Mockito.*
-import org.mockito.MockitoAnnotations.openMocks
+import ua.wwind.glotov.recipe.converters.RecipeDtoToRecipe
+import ua.wwind.glotov.recipe.converters.RecipeToRecipeDto
 import ua.wwind.glotov.recipe.domain.Recipe
 import ua.wwind.glotov.recipe.repositories.RecipeRepository
 
+@ExtendWith(MockKExtension::class)
 class RecipeServiceImplTest {
 
-    lateinit var recipeService: RecipeService
+    @InjectMockKs
+    private lateinit var recipeService: RecipeServiceImpl
 
-    @Mock
+    @MockK
     lateinit var recipeRepository: RecipeRepository
 
-    @BeforeEach
-    fun setUp() {
-        openMocks(this)
-        recipeService = RecipeServiceImpl(recipeRepository)
-    }
+    @RelaxedMockK
+    lateinit var recipeToRecipeDto: RecipeToRecipeDto
+
+    @RelaxedMockK
+    lateinit var recipeDtoToRecipe: RecipeDtoToRecipe
+
+//    @BeforeEach
+//    fun setUp() {
+//        openMocks(this)
+//        recipeService = RecipeServiceImpl(
+//            recipeRepository,
+//            recipeDtoToRecipe,
+//            recipeToRecipeDto
+//        )
+//    }
 
     @Test
     fun findAll() {
@@ -28,10 +45,10 @@ class RecipeServiceImplTest {
         val recipe = Recipe("My Recipe")
         val recipesSet = listOf(recipe)
 
-        `when`(recipeService.findAll()).thenReturn(recipesSet)
+        every { recipeRepository.findAll() } returns recipesSet
 
         val recipes = recipeService.findAll()
         assertEquals(recipes.size, 1)
-        verify(recipeRepository, times(1)).findAll()
+        io.mockk.verify(exactly = 1) { recipeRepository.findAll() }
     }
 }

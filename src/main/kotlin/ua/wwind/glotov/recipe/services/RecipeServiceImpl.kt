@@ -23,4 +23,10 @@ class RecipeServiceImpl @Autowired constructor(
         val recipe = recipeDtoToRecipe.convert(recipeDto) ?: throw NullPointerException("Conversion error")
         return recipeToRecipeDto.convert(recipeRepository.save(recipe)) ?: throw RuntimeException("Unknown error with converting recipe")
     }
+
+    @OptIn(ExperimentalStdlibApi::class)
+    override fun findDtoById(id: Long): RecipeDto? {
+        val recipe = recipeRepository.findById(id).getOrNull() ?: return null
+        return recipeToRecipeDto.convert(recipe)
+    }
 }

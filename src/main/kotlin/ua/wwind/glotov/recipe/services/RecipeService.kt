@@ -7,4 +7,5 @@ interface RecipeService {
     fun findAll(): List<Recipe>
     fun findById(id: Long): Recipe?
     fun saveRecipeDto(recipeDto: RecipeDto): RecipeDto
+    fun findDtoById(id: Long): RecipeDto?
 }

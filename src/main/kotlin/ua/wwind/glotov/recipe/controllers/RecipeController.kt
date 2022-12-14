@@ -21,6 +21,13 @@ class RecipeController @Autowired constructor(private val recipeService: RecipeS
         return "recipe/recipeform"
     }
 
+    @RequestMapping("/recipe/update/{recipeId}")
+    fun updateRecipe(@PathVariable("recipeId") recipeId: String, model: Model): String {
+        val dto = recipeService.findDtoById(recipeId.toLong()) ?: return "redirect:/recipe/new"
+        model.addAttribute("recipe", dto)
+        return "recipe/recipeform"
+    }
+
     @PostMapping("/recipe")
     fun saveOrUpdate(@ModelAttribute recipeDto: RecipeDto): String {
         val savedDto = recipeService.saveRecipeDto(recipeDto)
