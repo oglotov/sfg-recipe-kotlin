@@ -21,4 +21,6 @@ class IngredientServiceImpl(
         val ingredient = ingredientDtoToIngredient.convert(ingredientDto)
         return ingredientToIngredientDto.convert(ingredientRepository.save(ingredient))
     }
+
+    override fun deleteById(id: Long) = ingredientRepository.deleteById(id)
 }
