@@ -8,7 +8,7 @@ import ua.wwind.glotov.recipe.dto.IngredientDto
 @Component
 class IngredientToIngredientDto(private val uomConverter: UnitOfMeasureToUnitOfMeasureDto) :
     Converter<Ingredient, IngredientDto> {
-    override fun convert(source: Ingredient): IngredientDto? {
+    override fun convert(source: Ingredient): IngredientDto {
         return IngredientDto(
             id = source.id,
             recipeId = source.recipe?.id,
