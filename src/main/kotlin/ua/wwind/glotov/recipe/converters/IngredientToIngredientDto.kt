@@ -11,6 +11,7 @@ class IngredientToIngredientDto(private val uomConverter: UnitOfMeasureToUnitOfM
     override fun convert(source: Ingredient): IngredientDto? {
         return IngredientDto(
             id = source.id,
+            recipeId = source.recipe?.id,
             description = source.description,
             amount = source.amount,
             unitOfMeasure = source.unitOfMeasure?.let { uomConverter.convert(it) }

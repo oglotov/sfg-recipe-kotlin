@@ -10,5 +10,6 @@ data class IngredientDto(
     var description: String = "",
     var amount: BigDecimal? = null,
     var unitOfMeasure: UnitOfMeasureDto? = null,
-    var id: Long? = null
+    var id: Long? = null,
+    var recipeId: Long? = null
 ) : Serializable
