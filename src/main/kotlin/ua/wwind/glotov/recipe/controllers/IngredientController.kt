@@ -40,6 +40,18 @@ class IngredientController(
         )
         return "recipe/ingredient/ingredientform"
     }
+    @RequestMapping("/recipe/{recipeId}/ingredient/new")
+    fun newIngredient(@PathVariable recipeId: String, model: Model): String {
+        model.addAttribute(
+            "ingredient",
+            IngredientDto(recipeId = recipeId.toLong())
+        )
+        model.addAttribute(
+            "uomList",
+            unitOfMeasureService.findDtoAll()
+        )
+        return "recipe/ingredient/ingredientform"
+    }
 
     @PostMapping("/recipe/{recipeId}/ingredient")
     fun updateIngredient(@ModelAttribute ingredientDto: IngredientDto): String {
