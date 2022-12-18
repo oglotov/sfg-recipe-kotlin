@@ -18,5 +18,5 @@ data class RecipeDto(
     var categories: MutableSet<CategoryDto> = mutableSetOf(),
     var difficulty: Difficulty? = null,
     var note: NoteDto? = null,
-    var ingredients: MutableSet<IngredientDto> = mutableSetOf()
+    var ingredients: MutableSet<IngredientDto> = mutableSetOf(),
 ) : Serializable
