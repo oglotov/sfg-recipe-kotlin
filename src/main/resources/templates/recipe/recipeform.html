@@ -62,10 +62,13 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>Difficulty:</label>
-                                    <select class="form-control">
-                                        <option>Easy</option>
-                                        <option>Medium</option>
-                                        <option>Hard</option>
+                                    <select class="form-control" th:field="*{difficulty}">
+                                        <option th:each="difficultyValue : ${T(ua.wwind.glotov.recipe.domain.Difficulty).values()}"
+                                                th:value="${difficultyValue}"
+                                                th:text="${difficultyValue.name()}"
+                                        >Easy</option>
+                                        <option th:remove="all">Medium</option>
+                                        <option th:remove="all">Hard</option>
                                     </select>
                                 </div>
                             </div>
