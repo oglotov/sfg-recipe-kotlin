@@ -1,17 +1,21 @@
 package ua.wwind.glotov.recipe.controllers
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.ModelAndView
 import ua.wwind.glotov.recipe.dto.RecipeDto
+import ua.wwind.glotov.recipe.exceptions.NotFoundException
 import ua.wwind.glotov.recipe.services.RecipeService
 
 @Controller
 class RecipeController @Autowired constructor(private val recipeService: RecipeService) {
     @GetMapping("/recipe/{recipe_id}/show")
-    fun showRecipe(model: Model, @PathVariable("recipe_id") recipeId: String): String {
-        model.addAttribute("recipe", recipeService.findById(recipeId.toLong())!!)
+    fun showRecipe(model: Model, @PathVariable("recipe_id") recipeId: Long): String {
+        val recipe = recipeService.findById(recipeId) ?: throw NotFoundException("Recipe not found")
+        model.addAttribute("recipe", recipe)
         return "recipe/show"
     }
     @GetMapping("/recipe/{recipe_id}/delete")
@@ -38,4 +42,13 @@ class RecipeController @Autowired constructor(private val recipeService: RecipeS
         val savedDto = recipeService.saveRecipeDto(recipeDto)
         return "redirect:/recipe/${savedDto.id}/show"
     }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException::class)
+    fun handleNotFound(): ModelAndView {
+        val modelAndView = ModelAndView()
+        modelAndView.viewName = "404error"
+        return modelAndView
+    }
+
 }
