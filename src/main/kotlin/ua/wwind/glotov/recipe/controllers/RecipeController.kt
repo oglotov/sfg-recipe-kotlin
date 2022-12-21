@@ -14,7 +14,7 @@ import ua.wwind.glotov.recipe.services.RecipeService
 class RecipeController @Autowired constructor(private val recipeService: RecipeService) {
     @GetMapping("/recipe/{recipe_id}/show")
     fun showRecipe(model: Model, @PathVariable("recipe_id") recipeId: Long): String {
-        val recipe = recipeService.findById(recipeId) ?: throw NotFoundException("Recipe not found")
+        val recipe = recipeService.findById(recipeId) ?: throw NotFoundException("Recipe not found by id $recipeId")
         model.addAttribute("recipe", recipe)
         return "recipe/show"
     }
@@ -45,9 +45,10 @@ class RecipeController @Autowired constructor(private val recipeService: RecipeS
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException::class)
-    fun handleNotFound(): ModelAndView {
+    fun handleNotFound(ex: Exception): ModelAndView {
         val modelAndView = ModelAndView()
         modelAndView.viewName = "404error"
+        modelAndView.addObject("exception", ex)
         return modelAndView
     }
 
