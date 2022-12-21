@@ -1,23 +1,44 @@
 package ua.wwind.glotov.recipe.domain
 
 import jakarta.persistence.*
+import jakarta.validation.constraints.Max
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Size
+import org.hibernate.validator.constraints.URL
 
 @Suppress("unused")
 @Entity
 class Recipe(
+    @NotBlank
+    @Size(min = 3, max = 255)
     var description: String,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     var id: Long? = null
+
+    @Min(1)
+    @Max(999)
     var prepTime: Int? = null
+
+    @Min(1)
+    @Max(999)
     var cookTime: Int? = null
+
+    @Min(1)
+    @Max(100)
     var servings: Int? = null
     var source: String? = null
+
+    @URL
     var url: String? = null
+
     @Lob
+    @NotBlank
     var directions: String? = null
+
     @ManyToMany
     @JoinTable(
         name = "recipe_category",

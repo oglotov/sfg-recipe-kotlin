@@ -58,7 +58,7 @@ class RecipeBootstrap @Autowired constructor(
         val guacRecipe = Recipe("Perfect Guacamole")
             .apply {
                 prepTime = 10
-                cookTime = 0
+                cookTime = 5
                 difficulty = Difficulty.EASY
                 directions =
                     "1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon" +

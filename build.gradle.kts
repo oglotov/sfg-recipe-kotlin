@@ -39,6 +39,9 @@ dependencies {
     // Web
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    // Validator
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
     // WebJars
     compileOnly("org.webjars.npm:bootstrap:5.2.3")
     compileOnly("org.webjars.npm:jquery:3.6.1")
